@@ -103,54 +103,8 @@ const ThemeProvider = ({ children }) => {
     });
   }, [currentTheme]);
 
-  // Formatted theme name for tooltip
-  const formatThemeName = (theme) => {
-    return theme
-      .replace(/([A-Z])/g, ' $1')
-      .split(' ')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-  };
-
-  const ThemeButton = ({ theme, icon: Icon, color }) => (
-    <button
-      onClick={() => setCurrentTheme(theme)}
-      className={`p-2 rounded-md transition-all duration-200 hover:scale-110 hover:shadow-lg
-        ${currentTheme === theme 
-          ? 'bg-gray-100 shadow-inner ring-2 ring-opacity-50 ring-offset-2 ring-offset-white ring-gray-200' 
-          : 'hover:bg-gray-50'
-        }`}
-      aria-label={`Switch to ${formatThemeName(theme)} theme`}
-      title={formatThemeName(theme)}
-      role="radio"
-      aria-checked={currentTheme === theme}
-    >
-      <Icon 
-        size={20} 
-        color={color} 
-        className="transition-transform duration-200"
-      />
-    </button>
-  );
-
   return (
     <div className="min-h-screen transition-colors duration-300" style={{ backgroundColor: themes[currentTheme].primary }}>
-      <div 
-        className="fixed top-4 right-4 flex flex-wrap gap-2 bg-white p-3 rounded-lg shadow-lg max-w-xs z-50"
-        role="radiogroup"
-        aria-label="Theme selection"
-      >
-        <ThemeButton theme="light" icon={Sun} color="#64748b" />
-        <ThemeButton theme="dark" icon={Moon} color="#64748b" />
-        <ThemeButton theme="pastelLavender" icon={Cloud} color="#c4b5fd" />
-        <ThemeButton theme="pastelBlue" icon={Cloud} color="#93c5fd" />
-        <ThemeButton theme="pastelMint" icon={Leaf} color="#86efac" />
-        <ThemeButton theme="pastelPeach" icon={Heart} color="#fdb5b5" />
-        <ThemeButton theme="pastelYellow" icon={Sun} color="#fde047" />
-        <ThemeButton theme="warmSand" icon={Coffee} color="#f59e0b" />
-        <ThemeButton theme="warmRose" icon={Heart} color="#fb7185" />
-        <ThemeButton theme="serenity" icon={Cloud} color="#64748b" />
-      </div>
       {children}
     </div>
   );

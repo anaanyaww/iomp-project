@@ -8,6 +8,8 @@ import MazeGame from './components/MazeGame';
 import TestForm from './components/TestForm';
 import Memorygame from './components/Memorygame';
 import VirtualFriend from './components/VirtualFriend';
+import SupportFinder from './components/SupportFinder';
+import DocumentChat from './components/DocumentChat'; // NEW - RAG Document Chat
 
 const App = () => {
   return (
@@ -20,6 +22,8 @@ const App = () => {
         <Route path="/testform" element={<TestForm/>} />
         <Route path="/memorygame" element={<Memorygame/>} />
         <Route path="/virtualfriend" element={<VirtualFriend />} />
+        <Route path="/support-finder" element={<SupportFinder />} />
+        <Route path="/document-chat" element={<DocumentChat />} /> {/* NEW - RAG Route */}
       </Routes>
     </ThemeProvider>
   );
